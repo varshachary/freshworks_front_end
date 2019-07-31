@@ -20,7 +20,7 @@ function fetchAPI(link,input){
     return data.map(function(country){
       //create elements div,img and anchor tag to store the information
        let div=setClassName(createElement("div"),"box");
-       let a=setClassName(createElement("a"),"");
+       
        let img=createElement("img","");
        let span=createElement("span","");
 //store the data in their elements
@@ -31,9 +31,16 @@ function fetchAPI(link,input){
        append(div,img);
        append(div,span);
 
-       append(a,div);
+       
        //store it in the container
-       append(container,a);
+       append(container,div);
+var a = document.createElement('a');
+var linkText = document.createTextNode(country.name);
+a.appendChild(linkText);
+a.title = "my title text";
+a.href = "https://restcountries.eu/rest/v2/all/";
+document.body.appendChild(a);
+
     })
  })
  //incase of a fail in full text match
